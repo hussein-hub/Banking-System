@@ -1,0 +1,30 @@
+.alignment {
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	align-items: center;
+	/* background: url('images/intro.jpg'); */
+	/* height: 80vh;
+    width: 94vw; */
+	/* background-attachment: fixed; */
+}
+
+/* .map {
+	padding-left: 0px;
+} */
+
+@media screen and (min-width: 768px) {
+	/* .map {
+		padding-left: 68px;
+	} */
+}
+
+.transfer-button {
+	background-color: #8e54e9;
+	color: white;
+}
+
+.transfer-button:hover {
+	background-color: #7242bd;
+	color: white;
+}

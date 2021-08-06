@@ -1,0 +1,119 @@
+{% extends "main/base.html" %} {% block navbar %}
+<a href="{% url 'home' %}" class="nav_link">
+	<i class="bx bx-home nav_icon"></i>
+	<span class="nav_name">Home</span>
+</a>
+<a href="{% url 'customers' %}" class="nav_link active">
+	<i class="bx bx-user nav_icon"></i>
+	<span class="nav_name">Customers</span>
+</a>
+<a href="{% url 'transaction' %}" class="nav_link">
+	<i class="bx bx-transfer nav_icon"></i>
+	<span class="nav_name">Transaction</span>
+</a>
+<a href="{% url 'transfer' %}" class="nav_link">
+	<i class="bx bx-money nav_icon"></i>
+	<span class="nav_name">Transfer</span>
+</a>
+<a href="{% url 'register' %}" class="nav_link">
+	<i class="bx bx-log-in nav_icon"></i>
+	<span class="nav_name">Register user</span>
+</a>
+{% endblock %} 
+{% block style %}
+<style>
+	a {
+		text-decoration: none;
+	}
+
+	a:hover {
+		text-decoration: none;
+		color: blue;
+	}
+</style>
+{% endblock %} 
+{% block title %} <title>Customers</title> {% endblock %}
+{% block content %}
+<div
+	class="container"
+	style="padding-left: 5.5rem; padding-right: 1.75rem; margin-bottom: 5rem"
+>
+	{% if messages %} {% for message in messages %}
+	<div class="alert alert-{{ message.tags }}">{{ message }}</div>
+	{% endfor %} {% endif %}
+	<div class="row" style="margin-left: 15px">
+		{% comment %} {% for customer in customers %}
+		<span>{{ customer.name }}</span>
+		{% endfor %} {% endcomment %} {% comment %}
+		<div class="card" style="border-radius: 14px">
+			{% endcomment %}
+			<h1 style="font-size: 55px; margin-bottom: 30px">Customer List</h1>
+			<div class="table-responsive" style="border-radius: 14px">
+				<table class="table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th
+								style="
+									background-color: #36304a;
+									height: 60px;
+									color: white;
+								"
+								scope="col"
+							>
+								No.
+							</th>
+							<th
+								style="
+									background-color: #36304a;
+									height: 60px;
+									color: white;
+								"
+								scope="col"
+							>
+								Name
+							</th>
+							<th
+								style="
+									background-color: #36304a;
+									height: 60px;
+									color: white;
+								"
+								scope="col"
+							>
+								Email
+							</th>
+							<th
+								style="
+									background-color: #36304a;
+									height: 60px;
+									color: white;
+								"
+								scope="col"
+							>
+								Balance
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for customer in customers %}
+						<tr>
+							<th scope="row">{{ customer.id }}</th>
+							<td>
+								<a
+									href="{% url 'customer_detail' customer.id %}"
+									>{{ customer.name }}</a
+								>
+							</td>
+							<td>{{ customer.email }}</td>
+							<td>₹ {{ customer.balance }}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			{% comment %}
+		</div>
+		{% endcomment %}
+	</div>
+</div>
+{% endblock %}

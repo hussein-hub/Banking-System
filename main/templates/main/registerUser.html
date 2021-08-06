@@ -1,0 +1,126 @@
+{% extends "main/base.html" %} {% load static %} {% block navbar %}
+<a href="{% url 'home' %}" class="nav_link">
+	<i class="bx bx-home nav_icon"></i>
+	<span class="nav_name">Home</span>
+</a>
+<a href="{% url 'customers' %}" class="nav_link">
+	<i class="bx bx-user nav_icon"></i>
+	<span class="nav_name">Customers</span>
+</a>
+<a href="{% url 'transaction' %}" class="nav_link">
+	<i class="bx bx-transfer nav_icon"></i>
+	<span class="nav_name">Transaction</span>
+</a>
+<a href="{% url 'transfer' %}" class="nav_link">
+	<i class="bx bx-money nav_icon"></i>
+	<span class="nav_name">Transfer</span>
+</a>
+<a href="{% url 'register' %}" class="nav_link active">
+	<i class="bx bx-log-in nav_icon"></i>
+	<span class="nav_name">Register user</span>
+</a>
+{% endblock %} 
+{% block title %} <title>Register</title> {% endblock %} 
+{% block content %}
+
+<div
+	class="container"
+	style="padding-left: 5.5rem; padding-right: 1.75rem; margin-bottom: 5rem"
+>
+	{% if messages %} {% for message in messages %}
+	<div class="alert alert-{{ message.tags }}">{{ message }}</div>
+	{% endfor %} {% endif %}
+	<div class="row" style="margin-left: 15px">
+		<div class="col-md-12" style="height: 500px">
+			<div class="card-body">
+				<h5
+					style="
+						display: flex;
+						font-size: 46px;
+						flex-direction: row;
+						flex-wrap: nowrap;
+						justify-content: center;
+					"
+					class="card-title"
+				>
+					Register User
+				</h5>
+				<hr style="margin-left: 12.5%; width: 75%" />
+				<div
+					style="
+						display: flex;
+						flex-direction: row;
+						flex-wrap: wrap;
+						justify-content: center;
+					"
+				>
+					<form
+						style="
+							display: flex;
+							margin-top: 6%;
+							flex-direction: column;
+							flex-wrap: wrap;
+							align-items: center;
+						"
+						method="POST"
+					>
+						{% csrf_token %}
+						<div class="form-group">
+							<input
+								style="width: 300px; height: 50px"
+								type="text"
+								name="name"
+								step="0.01"
+								required=""
+								id="id_name"
+								class="form-control"
+								placeholder="Enter your full name"
+							/>
+						</div>
+						<div class="form-group">
+							<input
+								type="email"
+								style="width: 300px; height: 50px"
+								name="email"
+								required=""
+								class="form-control"
+								id="id_email"
+								placeholder="Enter your email address"
+							/>
+						</div>
+						<div class="form-group">
+							<input
+								style="width: 300px; height: 50px"
+								type="number"
+								name="balance"
+								step="0.01"
+								required=""
+								id="id_balance"
+								class="form-control"
+								placeholder="Enter the balance amount"
+							/>
+						</div>
+						<div class="form-group">
+							<input
+								style="width: 300px; height: 50px"
+								type="date"
+								name="dateCreated"
+								step="0.01"
+								required=""
+								id="id_dateCreated"
+								class="form-control"
+							/>
+						</div>
+						<input
+							class="btn btn-outline-primary"
+							type="submit"
+							value="Register"
+						/>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
