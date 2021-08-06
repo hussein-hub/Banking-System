@@ -30,13 +30,25 @@
 		text-decoration: none;
 		color: blue;
 	}
+	.placement {
+		padding-left: 5.5rem; 
+		padding-right: 1.75rem; 
+		margin-bottom: 5rem
+	}
+	@media screen and (max-width: 767px) {
+		.placement {
+			padding-left: 0rem; 
+			padding-right: 1.75rem; 
+			margin-bottom: 5rem
+		}
+	}
+
 </style>
 {% endblock %} 
 {% block title %} <title>Customers</title> {% endblock %}
 {% block content %}
 <div
-	class="container"
-	style="padding-left: 5.5rem; padding-right: 1.75rem; margin-bottom: 5rem"
+	class="container placement"
 >
 	{% if messages %} {% for message in messages %}
 	<div class="alert alert-{{ message.tags }}">{{ message }}</div>

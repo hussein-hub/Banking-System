@@ -21,10 +21,27 @@
 </a>
 {% endblock %} 
 {% block title %} <title>Transaction</title> {% endblock %}
+
+{% block style %}
+<style>
+	.placement {
+		padding-left: 5.5rem; 
+		padding-right: 1.75rem; 
+		margin-bottom: 5rem
+	}
+	@media screen and (max-width: 767px) {
+		.placement {
+			padding-left: 0rem; 
+			padding-right: 1.75rem; 
+			margin-bottom: 5rem
+		}
+	}
+</style>
+{% endblock %}
+
 {% block content %}
 <div
-	class="container"
-	style="padding-left: 5.5rem; padding-right: 1.75rem; margin-bottom: 5rem"
+	class="container placement"
 >
 	<div class="row" style="margin-left: 15px">
 		{% comment %} {% for customer in customers %}

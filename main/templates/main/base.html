@@ -27,6 +27,16 @@
 			href="{% static 'style.css' %}"
 		/>
 		{% block title %} {% endblock %}
+		<style>
+			.body-pd {
+				padding-left: 120px;
+			}
+			@media screen and (max-width: 767px) {
+				.body-pd {
+					padding-left: 45px;
+				}
+			}
+		</style>
 	</head>
 
 	<body id="body-pd">
