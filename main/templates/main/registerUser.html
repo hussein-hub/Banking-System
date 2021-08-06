@@ -21,11 +21,38 @@
 </a>
 {% endblock %} 
 {% block title %} <title>Register</title> {% endblock %} 
+{% block style %}
+<style>
+	.adjust {
+		width: 400px; 
+		height: 50px; 
+		text-align: center
+	}
+	.placement {
+		padding-left: 5.5rem; 
+		padding-right: 1.75rem; 
+		margin-bottom: 5rem
+	}
+	@media screen and (max-width: 767px) {
+		.placement {
+			padding-left: 0rem; 
+			padding-right: 1.75rem; 
+			margin-bottom: 5rem
+		}
+	}
+	@media screen and (max-width: 425px) {
+		.adjust {
+			width: 250px; 
+			height: 50px; 
+			text-align: center
+		}
+	}
+</style>
+{% endblock %}
 {% block content %}
 
 <div
-	class="container"
-	style="padding-left: 5.5rem; padding-right: 1.75rem; margin-bottom: 5rem"
+	class="container placement"
 >
 	{% if messages %} {% for message in messages %}
 	<div class="alert alert-{{ message.tags }}">{{ message }}</div>
@@ -67,48 +94,44 @@
 						{% csrf_token %}
 						<div class="form-group">
 							<input
-								style="width: 300px; height: 50px"
 								type="text"
 								name="name"
 								step="0.01"
 								required=""
 								id="id_name"
-								class="form-control"
+								class="form-control adjust"
 								placeholder="Enter your full name"
 							/>
 						</div>
 						<div class="form-group">
 							<input
 								type="email"
-								style="width: 300px; height: 50px"
 								name="email"
 								required=""
-								class="form-control"
+								class="form-control adjust"
 								id="id_email"
 								placeholder="Enter your email address"
 							/>
 						</div>
 						<div class="form-group">
 							<input
-								style="width: 300px; height: 50px"
 								type="number"
 								name="balance"
 								step="0.01"
 								required=""
 								id="id_balance"
-								class="form-control"
+								class="form-control adjust"
 								placeholder="Enter the balance amount"
 							/>
 						</div>
 						<div class="form-group">
 							<input
-								style="width: 300px; height: 50px"
 								type="date"
 								name="dateCreated"
 								step="0.01"
 								required=""
 								id="id_dateCreated"
-								class="form-control"
+								class="form-control adjust"
 							/>
 						</div>
 						<input
