@@ -64,17 +64,21 @@ def customer_detail(request, pk):
     sender = customer.objects.get(id=pk)
     if request.method == 'POST':
         recipient_id = request.POST['toUser']
+        print("Recipient id : " + str(recipient_id))
+        print("Sender id : " + str(sender.id))
         if request.POST['amount'] == '' or not re.match('[+-]?([0-9]*[.])?[0-9]+', request.POST['amount']):
             messages.error(request, 'Please Enter Valid amount')
         else:
             amount = float((request.POST['amount']))
         
         if recipient_id == 'Select Customer':
-            messages.error(request, 'Please Select Customer')
+            messages.warning(request, 'Please Select Customer')
+        elif float(recipient_id) == float(sender.id):
+            messages.warning(request, 'You cannot transfer money to yourself !!')
         else:
             recipient = customer.objects.get(id=recipient_id)
             if float(sender.balance) < amount:
-                messages.error(request, 'Insufficient Balance')
+                messages.warning(request, 'Insufficient Balance')
             else:
                 sender.balance = sender.balance - (amount)
                 recipient.balance = recipient.balance + (amount)
