@@ -15,34 +15,48 @@
 	<i class="bx bx-money nav_icon"></i>
 	<span class="nav_name">Transfer</span>
 </a>
-<a href="{% url 'register' %}" class="nav_link">
-	<i class="bx bx-log-in nav_icon"></i>
-	<span class="nav_name">Register user</span>
-</a>
-{% endblock %} 
-{% block title %} <title>Transaction</title> {% endblock %}
 
+{% endblock %} {% block title %} <title>Transaction</title> {% endblock %}
 {% block style %}
 <style>
 	.placement {
-		padding-left: 5.5rem; 
-		padding-right: 1.75rem; 
-		margin-bottom: 5rem
+		padding-left: 5.5rem;
+		padding-right: 1.75rem;
+		margin-bottom: 5rem;
 	}
+
 	@media screen and (max-width: 767px) {
 		.placement {
-			padding-left: 0rem; 
-			padding-right: 1.75rem; 
-			margin-bottom: 5rem
+			padding-left: 0rem;
+			padding-right: 1.75rem;
+			margin-bottom: 5rem;
 		}
 	}
-</style>
-{% endblock %}
 
-{% block content %}
-<div
-	class="container placement"
->
+	.footer {
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		background: linear-gradient(315deg,
+				#4776e6 0%,
+				#8e54e9 51%,
+				#4776e6 100%);
+		color: white;
+		text-align: center;
+	}
+
+	.footer_p {
+		height: 50px;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: center;
+		align-content: space-between;
+		align-items: center;
+	}
+</style>
+{% endblock %} {% block content %}
+<div class="container placement">
 	<div class="row" style="margin-left: 15px">
 		{% comment %} {% for customer in customers %}
 		<span>{{ customer.name }}</span>
@@ -56,54 +70,39 @@
 				<table class="table table-striped table-bordered">
 					<thead>
 						<tr>
-							<th
-								style="
+							<th style="
 									background-color: #36304a;
 									height: 60px;
 									color: white;
-								"
-								scope="col"
-							>
+								" scope="col">
 								No.
 							</th>
-							<th
-								style="
+							<th style="
 									background-color: #36304a;
 									height: 60px;
 									color: white;
-								"
-								scope="col"
-							>
+								" scope="col">
 								Date
 							</th>
-							<th
-								style="
+							<th style="
 									background-color: #36304a;
 									height: 60px;
 									color: white;
-								"
-								scope="col"
-							>
+								" scope="col">
 								Sender Name
 							</th>
-							<th
-								style="
+							<th style="
 									background-color: #36304a;
 									height: 60px;
 									color: white;
-								"
-								scope="col"
-							>
+								" scope="col">
 								Recipient Name
 							</th>
-							<th
-								style="
+							<th style="
 									background-color: #36304a;
 									height: 60px;
 									color: white;
-								"
-								scope="col"
-							>
+								" scope="col">
 								Amount
 							</th>
 						</tr>
@@ -125,5 +124,13 @@
 		</div>
 		{% endcomment %}
 	</div>
+</div>
+{% endblock %}
+
+{% block footer %}
+<div class="footer" style="position: fixed">
+	<p class="footer_p">
+		<i class="bx bx-copyright nav_icon"></i>&nbsp; Hussein Motiwala.
+	</p>
 </div>
 {% endblock %}
