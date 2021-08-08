@@ -42,6 +42,9 @@
 		align-content: space-between;
 		align-items: center;
 	}
+	.badge {
+		padding: 0.35em 0.4em;
+	}
 </style>
 {% endblock %} {% block title %} <title>{{sender.name}}</title> {% endblock %}
 {% block content %}
@@ -123,10 +126,7 @@
 									style="margin-top: 175px"
 								>
 									<small
-										class="
-											badge badge-pill badge-warning
-											text-muted
-										"
+										class="badge badge-pill badge-warning"
 										>Account Created on
 										{{sender.dateCreated}}</small
 									>
