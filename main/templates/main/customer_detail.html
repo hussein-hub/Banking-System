@@ -19,29 +19,6 @@
 {% endblock %} {% block style %}
 <link rel="stylesheet" href="{% static 'customer.css' %}" />
 <style>
-	.footer {
-		left: 0;
-		bottom: 0;
-		width: 100%;
-		background: linear-gradient(
-			315deg,
-			#4776e6 0%,
-			#8e54e9 51%,
-			#4776e6 100%
-		);
-		color: white;
-		text-align: center;
-	}
-
-	.footer_p {
-		height: 50px;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: nowrap;
-		justify-content: center;
-		align-content: space-between;
-		align-items: center;
-	}
 	.badge {
 		padding: 0.35em 0.4em;
 	}
@@ -49,29 +26,21 @@
 {% endblock %} {% block title %} <title>{{sender.name}}</title> {% endblock %}
 {% block content %}
 
-<div
-	class="container"
-	style="padding-left: 5.5rem; padding-right: 1.75rem; margin-bottom: 5rem"
->
+<div class="container" style="padding-left: 5.5rem; padding-right: 1.75rem; margin-bottom: 5rem">
 	{% if messages %} {% for message in messages %}
 	<div class="alert alert-{{ message.tags }}">{{ message }}</div>
 	{% endfor %} {% endif %}
 	<div class="row row-content">
 		<div class="offset-lg-1 offset-md-1 col-lg-10 col-md-10">
-			<div
-				class="card"
-				style="
+			<div class="card" style="
 					border-radius: 22px;
 					box-shadow: 2px 2px 6px 0px rgba(118, 118, 118, 0.75);
 					-webkit-box-shadow: 2px 2px 6px 0px
 						rgba(118, 118, 118, 0.75);
 					-moz-box-shadow: 2px 2px 6px 0px rgba(118, 118, 118, 0.75);
-				"
-			>
+				">
 				<div class="row no-gutters">
-					<div
-						class="col-md-4"
-						style="
+					<div class="col-md-4" style="
 							height: 500px;
 							background-image: linear-gradient(
 								to right,
@@ -79,21 +48,15 @@
 								#dd2476 100%
 							);
 							border-radius: 22px;
-						"
-					>
-						<div
-							style="
+						">
+						<div style="
 								display: flex;
 								flex-direction: row;
 								flex-wrap: nowrap;
 								justify-content: center;
-							"
-						>
-							<img
-								style="width: 180px"
-								src="https://img.icons8.com/bubbles/100/000000/user.png"
-								alt="User-Profile-Image"
-							/>
+							">
+							<img style="width: 180px" src="https://img.icons8.com/bubbles/100/000000/user.png"
+								alt="User-Profile-Image" />
 						</div>
 					</div>
 					<div class="col-md-8" style="height: 500px">
@@ -103,33 +66,21 @@
 							</h5>
 							<hr />
 							<div class="profile-info">
-								<div
-									class="card-text my-4"
-									style="font-size: 18px"
-								>
+								<div class="card-text my-4" style="font-size: 18px">
 									<p>Name : {{sender.name}}</p>
 									<p style="margin-top: 20px">
 										Email : {{sender.email}}
 									</p>
-									<p
-										class="badge badge-pill badge-info"
-										style="
+									<p class="badge badge-pill badge-info" style="
 											margin-top: 20px;
 											font-size: 17px;
-										"
-									>
+										">
 										Balance : ₹ {{sender.balance}}
 									</p>
 								</div>
-								<div
-									class="card-text"
-									style="margin-top: 175px"
-								>
-									<small
-										class="badge badge-pill badge-warning"
-										>Account Created on
-										{{sender.dateCreated}}</small
-									>
+								<div class="card-text" style="margin-top: 175px">
+									<small class="badge badge-pill badge-warning">Account Created on
+										{{sender.dateCreated}}</small>
 								</div>
 							</div>
 						</div>
@@ -141,143 +92,84 @@
 	<div class="row" style="margin-left: 15px">
 		<div class="col-md-12" style="height: 500px">
 			<div class="card-body">
-				<h5
-					style="
+				<h5 style="
 						display: flex;
 						font-size: 46px;
 						flex-direction: row;
 						flex-wrap: nowrap;
 						justify-content: center;
-					"
-					class="card-title"
-				>
+					" class="card-title">
 					Transfer Funds
 				</h5>
 				<hr style="margin-left: 12.5%; width: 75%" />
-				<div
-					style="
+				<div style="
 						display: flex;
 						flex-direction: row;
 						flex-wrap: wrap;
 						justify-content: center;
-					"
-				>
-					<form
-						style="
+					">
+					<form style="
 							display: flex;
 							margin-top: 6%;
 							flex-direction: column;
 							flex-wrap: wrap;
 							align-items: center;
-						"
-						method="POST"
-					>
+						" method="POST">
 						{% csrf_token %} {% comment %}
-						<input
-							type="number"
-							name="amount"
-							step="0.01"
-							required=""
-							id="id_amount"
-							placeholder="Amount to transfer"
-						/>
+						<input type="number" name="amount" step="0.01" required="" id="id_amount"
+							placeholder="Amount to transfer" />
 						{% endcomment %}
 						<div class="form-group">
-							<input
-								style="
+							<input style="
 									width: 400px;
 									height: 50px;
 									text-align: center;
-								"
-								type="number"
-								name="amount"
-								step="0.01"
-								required=""
-								id="id_amount"
-								class="form-control"
-								placeholder="Amount to transfer"
-							/>
+								" type="number" name="amount" step="0.01" required="" id="id_amount" class="form-control"
+								placeholder="Amount to transfer" />
 						</div>
+						{% comment %} <div class="form-group">
+							<input type="date" style="
+									width: 400px;
+									height: 50px;
+									text-align: center;
+								" name="date" required="" class="form-control" id="id_date" />
+						</div> {% endcomment %}
 						<div class="form-group">
-							<input
-								type="date"
-								style="
+							<input style="
 									width: 400px;
 									height: 50px;
 									text-align: center;
-								"
-								name="date"
-								required=""
-								class="form-control"
-								id="id_date"
-							/>
+								" type="text" name="fromUser" step="0.01" required="" id="id_fromUser" class="form-control"
+								value="{{sender.name}}" disabled />
 						</div>
-						<div class="form-group">
-							<input
-								style="
-									width: 400px;
-									height: 50px;
-									text-align: center;
-								"
-								type="text"
-								name="fromUser"
-								step="0.01"
-								required=""
-								id="id_fromUser"
-								class="form-control"
-								value="{{sender.name}}"
-								disabled
-							/>
-						</div>
-						<div
-							class="input-group mb-3"
-							style="
+						<div class="input-group mb-3" style="
 								width: 400px;
 								height: 50px;
 								text-align: center;
-							"
-						>
-							<select
-								style="
+							">
+							<select style="
 									width: 400px;
 									height: 50px;
 									text-align: center;
-								"
-								name="toUser"
-								class="custom-select"
-								id="id_toUser"
-							>
+								" name="toUser" class="custom-select" id="id_toUser">
 								<option selected>Select Customer</option>
 								{% for c in customers %}
 								<option value="{{c.id}}">{{c.name}}</option>
 								{% endfor %}
 							</select>
 						</div>
-						<button
-							style="
+						<button style="
 								display: flex;
 								flex-direction: row;
 								flex-wrap: nowrap;
 								align-items: center;
-							"
-							class="btn btn-outline-primary"
-							type="submit"
-						>
-							Send<i
-								style="margin-left: 6px"
-								class="bx bx-send nav_icon"
-							></i>
+							" class="btn btn-outline-primary" type="submit">
+							Send<i style="margin-left: 6px" class="bx bx-send nav_icon"></i>
 						</button>
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
-{% endblock %} {% block footer %}
-<div class="footer">
-	<p class="footer_p">
-		<i class="bx bx-copyright nav_icon"></i>&nbsp; Hussein Motiwala.
-	</p>
 </div>
 {% endblock %}

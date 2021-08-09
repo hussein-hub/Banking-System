@@ -14,7 +14,7 @@ class customer(models.Model):
 class transactions(models.Model):
     # id = models.AutoField(default=0, primary_key=True)
     amount = models.FloatField()
-    date = models.DateField(default=timezone.now)
+    date = models.DateTimeField(default=timezone.localtime(timezone.now()))
     fromUser = models.CharField(max_length=100)
     toUser = models.ForeignKey(customer, max_length=100, on_delete=models.CASCADE, related_name="toUser")
     def __str__(self):
