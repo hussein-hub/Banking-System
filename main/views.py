@@ -23,7 +23,7 @@ def customers(request):
     # def get_queryset(self):
     #     # user = get_object_or_404(User, username=self.kwargs.get('username'))
     #     return customer.objects.all()
-    return render(request, 'main/customer.html', {'customers': customer.objects.all()})
+    return render(request, 'main/customer.html', {'customers': customer.objects.all().order_by('-balance')})
 
 def transfer(request):
     c = customer.objects.all()
