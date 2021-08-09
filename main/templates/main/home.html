@@ -27,9 +27,7 @@
 		}
 	} */
 </style>
-{% endblock %}
-{% block title %} <title>Home</title> {% endblock %}
-{% block navbar %}
+{% endblock %} {% block title %} <title>Home</title> {% endblock %} {% block navbar %}
 <a href="{% url 'home' %}" class="nav_link active">
 	<i class="bx bx-home nav_icon"></i>
 	<span class="nav_name">Home</span>
@@ -46,8 +44,7 @@
 	<i class="bx bx-money nav_icon"></i>
 	<span class="nav_name">Transfer</span>
 </a>
-{% endblock %}
-{% block content %}
+{% endblock %} {% block content %}
 <div class="container-fluid" style="padding-left: 1.75rem; padding-right: 1.75rem; margin-bottom: 5rem">
 	<div class="row row-content d-flex justify-content-center">
 		<div class="offset-lg-1 col-md-5 col-lg-5" style="padding-top: 4%">
@@ -62,7 +59,7 @@
 			<a href="{% url 'transfer' %}" class="btn my-3 transfer-button">Transfer Funds</a>
 		</div>
 		<div class="col-md-6 col-lg-6">
-			<img class="banner-image" style="width: 700px" src="{% static 'images/bank-intro.jpg' %}" alt="" />
+			<img class="banner-image" style="width: 700px" src="{% static 'images/intro-bank.jpg' %}" alt="" />
 		</div>
 	</div>
 </div>
